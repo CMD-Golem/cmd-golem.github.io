@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<title>Test Seite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="theme.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+<link rel="icon" href="elements/favicon.png">
+</head>
+
+<body>
+
+<!--Scripts-->
+<script>
+function MenuFunction() {
+  var x = document.getElementById("Menu");
+  if (x.className === "menu") {
+    x.className += " responsive";
+  } else {
+    x.className = "menu";
+  }
+}
+</script>
+
+<script>
+function darkmode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
+<!--Menu-->
+<div class="menu-space">
+  <div class="menu" id="Menu">
+    <a href="index.html">Home</a>
+    <a href="html.html" class="menu-active">HTML</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="MenuFunction()">&#9776;</a>
+  </div>
+</div>
+
+<!--Content-->
+<div class="content">
+  <h1 style="text-align: center;">HTML Geschichte</h1>
+
+  <p>
+    HTML wurde erstmals am 13. März 1989 von Tim Berners-Lee am CERN in Genf vorgeschlagen.
+  </p>
+
+  <ul>
+    <li>
+      HTML (ohne Versionsnummer, 3. November 1992): Urversion, die sich nur an Text orientierte.
+    </li>
+    <li>
+      HTML (ohne Versionsnummer, 30. April 1993): Zu Text kam neben Attributen wie fette oder kursive Darstellung die Bildintegration dazu.
+    </li>
+    <li>
+      HTML+ (November 1993) Geplante Erweiterungen, die in spätere Versionen einflossen, aber nie als HTML+ verabschiedet wurden.
+    </li>
+    <li>
+      HTML 2.0 (November 1995): Die mit RFC 1866 definierte Version führte u. a. Formulartechnik ein. Der Status dieses Standards ist „HISTORIC“. Auch die Vorgänger sind veraltet.
+    </li>
+    <li>
+      HTML 3.0: Nicht erschienen, weil sie mit der Einführung des Netscape-Browsers in der Version 3 bereits vor der geplanten Veröffentlichung veraltet war.
+    </li>
+    <li>
+      HTML 3.2 (14. Januar 1997): Neu waren zahlreiche Features wie Tabellen, Textfluss um Bilder, Einbindung von Applets.
+    </li>
+    <li>
+      HTML 4.0 (18. Dezember 1997): Einführung von Stylesheets, Skripten und Frames. Auch eine Trennung in Strict, Frameset und Transitional erfolgte. Am 24. April 1998 erschien eine leicht korrigierte Version.
+    </li>
+    <li>
+      HTML 4.01 (24. Dezember 1999): Ersetzte HTML 4.0 mit vielen kleineren Korrekturen. War lange Zeit Standard bis 2014.
+    </li>
+    <li>
+      XHTML 1.0 (26. Januar 2000): Neuformulierung von HTML 4.01 mit Hilfe von XML. Am 1. August 2002 erschien eine überarbeitete Version.
+    </li>
+    <li>
+      XHTML 1.1 (31. Mai 2001): Nachdem XHTML in Module aufgeteilt wurde, wurde mit XHTML 1.1 eine strikte Version definiert, bei der die mit HTML 4 eingeführten Varianten Frameset und Transitional entfielen.
+    </li>
+    <li>
+      XHTML 2.0 (closed, 26. Juli 2006): Diese Version sollte nicht mehr auf HTML 4.01 basieren und einige neue Elemente einführen, so z. B. nl für Navigationslisten. Die Trennung von Auszeichnung und Stil sollte in dieser Version vollendet werden. – Das W3C hat die Arbeiten an XHTML 2.0 im Sommer 2009 eingestellt, weil XHTML durch HTML5 ersetzt werden sollte.
+    </li>
+    <li>
+      HTML5 (Recommendation, 28. Oktober 2014): Schuf auf Basis von HTML 4.01 und XHTML 1.0 ein neues Vokabular. Die zu HTML gehörende DOM-Spezifikation wurde ebenfalls überarbeitet und erweitert.
+    </li>
+    <li>
+      HTML 5.1 (Recommendation, 1. November 2016)
+    </li>
+    <li>
+      HTML 5.2 (Recommendation, 14. Dezember 2017): Aktuelle Version.
+    </li>
+  </ul>
+
+  <p style="text-align: justify; text-align: right;">
+    Quelle: <a class="hyperlink" href="https://de.wikipedia.org/wiki/Hypertext_Markup_Language">Wikipedia</a>
+  </p>
+
+</div>
+
+<!--Footer-->
+<div class="footer" style="position: fixed; bottom: 0; width: 100%">
+	<div class="footer-colum">
+  	<img src="elements/theme_change.png" style="width: 30px; margin-left: 26%; margin-top: 10px;" title="Change Theme" onclick="darkmode()">
+  </div>
+	<div class="footer-colum">
+  	<p style="color: white; font-size: 12px; text-align: right; margin-right: 24%">©<script>document.write(new Date().getFullYear());</script> by Fabian Kaufmann</p>
+	</div>
+</div>
+
+</body>
+</html>

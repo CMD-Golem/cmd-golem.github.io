@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<title>Test Seite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="theme.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+<link rel="icon" href="elements/favicon.png">
+</head>
+
+<body>
+
+<!--Scripts-->
+<script>
+function MenuFunction() {
+  var x = document.getElementById("Menu");
+  if (x.className === "menu") {
+    x.className += " responsive";
+  } else {
+    x.className = "menu";
+  }
+}
+</script>
+
+<script>
+function darkmode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
+<!--Menu-->
+<div class="menu-space">
+  <div class="menu" id="Menu">
+    <a href="index.html" class="menu-active">Home</a>
+    <a href="html.html">HTML</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="MenuFunction()">&#9776;</a>
+  </div>
+</div>
+
+<!--Content-->
+<div class="content">
+  <h1 style="text-align: center;">Beispiel Webseite</h1>
+
+  <img class="image" src="elements/server.jpg">
+
+  <h2 style="text-align: center;">HTML</h2>
+
+  <p style="text-align: justify;">Die Hypertext Markup Language (HTML, englisch für Hypertext-Auszeichnungssprache) ist eine textbasierte Auszeichnungssprache zur Strukturierung elektronischer Dokumente wie Texte mit Hyperlinks, Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern dargestellt. Neben den vom Browser angezeigten Inhalten können HTML-Dateien zusätzliche Angaben in Form von Metainformationen enthalten, z. B. über die im Text verwendeten Sprachen, den Autor oder den zusammengefassten Inhalt des Textes.
+
+HTML wird vom World Wide Web Consortium (W3C) und der Web Hypertext Application Technology Working Group (WHATWG) weiterentwickelt. Die aktuelle Version ist seit dem 14. Dezember 2017 HTML 5.2, die bereits von vielen aktuellen Webbrowsern und anderen Layout-Engines unterstützt wird. Auch die Extensible Hypertext Markup Language (XHTML) wird durch HTML5 ersetzt.
+
+HTML dient als Auszeichnungssprache dazu, einen Text semantisch zu strukturieren, nicht aber zu formatieren. Die visuelle Darstellung ist nicht Teil der HTML-Spezifikationen und wird durch den Webbrowser und Gestaltungsvorlagen wie CSS bestimmt. Ausnahme sind die als veraltet (englisch deprecated) markierten präsentationsbezogenen Elemente.
+
+  </p>
+
+  <p style="text-align: justify; text-align: right;">
+  	Quelle: <a class="hyperlink" href="https://de.wikipedia.org/wiki/Hypertext_Markup_Language">Wikipedia</a>
+  </p>
+
+  <h2 style="text-align: center;">CSS</h2>
+
+	<p  style="text-align: justify;" >Cascading Style Sheets (kurz: CSS) ist eine Stylesheet-Sprache für elektronische Dokumente und zusammen mit HTML und JavaScript eine der Kernsprachen des World Wide Webs. Sie ist ein sogenannter „living standard“ (lebendiger Standard) und wird vom World Wide Web Consortium (W3C) beständig weiterentwickelt. Mit CSS werden Gestaltungsanweisungen erstellt, die vor allem zusammen mit den Auszeichnungssprachen HTML und XML (zum Beispiel bei SVG) eingesetzt werden.
+	</p>
+
+	<p style="text-align: justify; text-align: right;">
+  	Quelle: <a class="hyperlink" href="https://de.wikipedia.org/wiki/Cascading_Style_Sheets">Wikipedia</a>
+  </p>
+
+  <div style="height:100px;"></div>
+
+</div>
+
+<!--Footer-->
+<div class="footer">
+	<div class="footer-colum">
+  	<img src="elements/theme_change.png" style="width: 30px; margin-left: 30%; margin-top: 10px;" title="Change Theme" onclick="darkmode()">
+  </div>
+	<div class="footer-colum">
+  	<p style="color: white; font-size: 12px; text-align: right;">©<script>document.write(new Date().getFullYear());</script> by Fabian Kaufmann</p>
+	</div>
+</div>
+
+</body>
+</html>
