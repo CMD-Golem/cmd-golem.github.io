@@ -7,7 +7,7 @@ header {
 }
 
 article {
-
+  background-image: url("elements/index/1.jpg") ;
   background-size: cover;
   background-repeat: no-repeat;
   height: 90vh;
