@@ -2,88 +2,131 @@
 <html lang="de">
 
 <head>
-<title>Test Seite</title>
+<title>Rollmaterial RhB</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="index.css"/>
 <link rel="stylesheet" type="text/css" href="style.css"/>
-<link rel="stylesheet" type="text/css" href="theme.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link rel="icon" href="elements/favicon.png">
 </head>
 
 <body>
 
 <!--Scripts-->
-<script>
-function MenuFunction() {
-  var x = document.getElementById("Menu");
-  if (x.className === "menu") {
-    x.className += " responsive";
-  } else {
-    x.className = "menu";
-  }
-}
+<script type="text/javascript">
+$(document).ready(function() {
+
+    var bgArray = ['bg1.jpg', 'bg2.jpg'];
+    var bg = bgArray[Math.floor(Math.random() * bgArray.length)];
+
+    // If you have defined a path for the images
+    var path = 'elements/index/';
+
+    // then you can put it right before the variable 'bg'
+    $('article').css('background-image', path+bg);
+
+}); 
 </script>
 
-<script>
-function darkmode() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
 
-<!--Menu-->
-<div class="menu-space">
-  <div class="menu" id="Menu">
-    <a href="index.html" class="menu-active">Home</a>
-    <a href="html.html">HTML</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
-    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="MenuFunction()">&#9776;</a>
-  </div>
-</div>
+<!--Header-->
+<header>
+    <a href="" style="text-decoration: none;">
+        <h1 style="text-align: center;">Rollmaterial RhB</h1>   
+    </a>
+</header>
+
+<!--Welcome screen-->
+<article>
+    <div>
+        <div class="welcome_screen_center">
+            <p style="font-weight: bold;">Herzlich Willkommen auf Rollmaterial RhB.</p>
+            <p>Verschaffen Sie sich einen Überblick von dem Rollmaterial der Rhätischen Bahn.</p>
+            <input class="search_box" type="text" placeholder="Suchen">
+        </div>
+        <div class="welcome_screen_scroll_center">
+            <a class="welcome_screen_scroll" href="#erkunden">
+                <p style="color: white">▼ Erkunden ▼</p>
+            </a>
+        </div>
+    </div>
+</article>
+
 
 <!--Content-->
-<div class="content">
-  <h1 style="text-align: center;">Beispiel Webseite</h1>
+<main>
+    <div  id="erkunden"></div>
+    <div style="height:10vw;"></div>
 
-  <img class="image" src="elements/server.jpg">
 
-  <h2 style="text-align: center;">HTML</h2>
 
-  <p style="text-align: justify;">Die Hypertext Markup Language (HTML, englisch für Hypertext-Auszeichnungssprache) ist eine textbasierte Auszeichnungssprache zur Strukturierung elektronischer Dokumente wie Texte mit Hyperlinks, Bildern und anderen Inhalten. HTML-Dokumente sind die Grundlage des World Wide Web und werden von Webbrowsern dargestellt. Neben den vom Browser angezeigten Inhalten können HTML-Dateien zusätzliche Angaben in Form von Metainformationen enthalten, z. B. über die im Text verwendeten Sprachen, den Autor oder den zusammengefassten Inhalt des Textes.
+	<div class="selimg_outline">
 
-HTML wird vom World Wide Web Consortium (W3C) und der Web Hypertext Application Technology Working Group (WHATWG) weiterentwickelt. Die aktuelle Version ist seit dem 14. Dezember 2017 HTML 5.2, die bereits von vielen aktuellen Webbrowsern und anderen Layout-Engines unterstützt wird. Auch die Extensible Hypertext Markup Language (XHTML) wird durch HTML5 ersetzt.
+    	<a class="selimg_spacing" href="data/lokomotiven.html">
+    		<div class="selimg_container">
+    			<img class="selimg_img" src="elements/menu/index/lokomotiven.jpg">
+    			<div class="selimg_overlay"  style="background-color: #2f4c2b;">
+    				<div class="selimg_text">Lokomotiven</div>
+    			</div>
+    		</div>
+    	</a>
 
-HTML dient als Auszeichnungssprache dazu, einen Text semantisch zu strukturieren, nicht aber zu formatieren. Die visuelle Darstellung ist nicht Teil der HTML-Spezifikationen und wird durch den Webbrowser und Gestaltungsvorlagen wie CSS bestimmt. Ausnahme sind die als veraltet (englisch deprecated) markierten präsentationsbezogenen Elemente.
+    	<a class="selimg_spacing" href="data/personenwagen.html">
+    		<div class="selimg_container">
+    			<img class="selimg_img" src="elements/menu/index/personen.jpg">
+    			<div class="selimg_overlay"  style="background-color: #803034;">
+    				<div class="selimg_text">Personenwagen</div>
+    			</div>
+    		</div>
+    	</a>
 
-  </p>
+    	<a class="selimg_spacing" href="data/gepaeckwagen.html">
+    		<div class="selimg_container">
+    			<img class="selimg_img" src="elements/menu/index/gepaeck.jpg">
+    			<div class="selimg_overlay" style="background-color: #31459c;">
+    				<div class="selimg_text">Gepäckwagen</div>
+    			</div>
+    		</div>
+    	</div>
+	</a>
 
-  <p style="text-align: justify; text-align: right;">
-  	Quelle: <a class="hyperlink" href="https://de.wikipedia.org/wiki/Hypertext_Markup_Language">Wikipedia</a>
-  </p>
+    <div class="selimg_outline">
 
-  <h2 style="text-align: center;">CSS</h2>
+        <a class="selimg_spacing" href="data/gueterwagen.html">
+            <div class="selimg_container">
+                <img class="selimg_img" src="elements/menu/index/gueter.jpg">
+                <div class="selimg_overlay" style="background-color: #5b493d;">
+                    <div class="selimg_text">Güterwagen</div>
+                </div>
+            </div>
+        </a>
 
-	<p  style="text-align: justify;" >Cascading Style Sheets (kurz: CSS) ist eine Stylesheet-Sprache für elektronische Dokumente und zusammen mit HTML und JavaScript eine der Kernsprachen des World Wide Webs. Sie ist ein sogenannter „living standard“ (lebendiger Standard) und wird vom World Wide Web Consortium (W3C) beständig weiterentwickelt. Mit CSS werden Gestaltungsanweisungen erstellt, die vor allem zusammen mit den Auszeichnungssprachen HTML und XML (zum Beispiel bei SVG) eingesetzt werden.
-	</p>
+        <a class="selimg_spacing" href="data/dienstwagen.html">
+            <div class="selimg_container">
+                <img class="selimg_img" src="elements/menu/index/dienst.jpg">
+                <div class="selimg_overlay" style="background-color: #555655;">
+                    <div class="selimg_text">Dienstwagen</div>
+                </div>
+            </div>
+        </a>
 
-	<p style="text-align: justify; text-align: right;">
-  	Quelle: <a class="hyperlink" href="https://de.wikipedia.org/wiki/Cascading_Style_Sheets">Wikipedia</a>
-  </p>
+        <a class="selimg_spacing" href="data/gleisbaumschinen.html">
+            <div class="selimg_container">
+                <img class="selimg_img" src="elements/menu/index/gleisbau.jpg">
+                <div class="selimg_overlay" style="background-color: #906d11;">
+                    <div class="selimg_text">Gleisbaumaschinen</div>
+                </div>
+            </div>
+        </div>
+    </a>
 
-  <div style="height:100px;"></div>
+    <div style="height:10vw;"></div>
 
-</div>
+</main>
 
 <!--Footer-->
-<div class="footer">
-	<div class="footer-colum">
-  	<img src="elements/theme_change.png" style="width: 30px; margin-left: 30%; margin-top: 10px;" title="Change Theme" onclick="darkmode()">
-  </div>
-	<div class="footer-colum">
-  	<p style="color: white; font-size: 12px; text-align: right;">©<script>document.write(new Date().getFullYear());</script> by Fabian Kaufmann</p>
-	</div>
-</div>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
 
 </body>
 </html>

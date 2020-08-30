@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<title>Rollmaterial RhB - Gep&auml;ckwagen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<link rel="stylesheet" type="text/css" href="../menu.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+<link rel="icon" href="../elements/favicon.png">
+</head>
+
+<body>
+
+<!--Scripts-->
+<script>
+function MenuFunction() {
+  var x = document.getElementById("Menu");
+  if (x.className === "menu") {
+    x.className += " responsive";
+  } else {
+    x.className = "menu";
+  }
+}
+</script>
+
+<!--Menu-->
+<div class="menu-space">
+  <div class="menu" id="Menu">
+    <a href="../index.html">Home</a>
+    <a href="lokomotiven.html">Lokomotiven</a>
+    <a href="personenwagen.html">Personenwagen</a>
+    <a href="gepaeckwagen.html" style="background-color: #31459c;">Gepäckwagen</a>
+    <a href="gueterwagen.html">Güterwagen</a>
+    <a href="dienstwagen.html">Dienstwagen</a>
+    <a href="gleisbaumschinen.html">Gleisbaumaschinen</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="MenuFunction()">&#9776;</a>
+  </div>
+</div>
+
+<!--Content-->
+<main>
+	<h1 style="text-align: center;" >Gepäckwagen</h1>
+
+	<div class="selimg_outline">
+
+    	<a class="selimg_spacing" href="gepaeckwagen/gepaeckwagen.html">
+            <div class="selimg_container">
+                <img class="selimg_img" src="../elements/menu/gepaeck/gepaeck.jpg">
+                <div class="selimg_overlay"  style="background-color: #31459c;">
+                    <div class="selimg_text">Gepäckwagen</div>
+                </div>
+            </div>
+        </a>
+
+        <a class="selimg_spacing" href="gepaeckwagen/postwagen.html">
+            <div class="selimg_container">
+                <img class="selimg_img" src="../elements/menu/gepaeck/post.jpg">
+                <div class="selimg_overlay"  style="background-color: #293a82;">
+                    <div class="selimg_text">Postwagen</div>
+                </div>
+            </div>
+        </a>
+
+	</div>
+
+	
+
+	<div style="height:10vw;"></div>
+
+
+
+
+</main>
+
+<!--Footer-->
+<script language="javascript" type="text/javascript" src="../footer.txt"></script>
+
+</body>
+</html>
