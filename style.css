@@ -89,8 +89,6 @@ a:active {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
 }
@@ -99,7 +97,11 @@ a:active {
 @media (pointer: coarse) {
   .selimg_container .selimg_overlay {
   bottom: 0;
-  height: 15%;
+  height: 20%;
+  opacity: 70%;
+  }
+  .selimg_text {
+  	white-space: nowrap;
   }
 }
 
