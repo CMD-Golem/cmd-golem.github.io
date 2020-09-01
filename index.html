@@ -13,6 +13,18 @@
 <body>
 
 <!--Scripts-->
+<script type="text/javascript"> 
+<!-- 
+if (document.getElementById) { window.onload = swap };
+function swap() {
+var numimages=3;
+rndimg = new Array("elements/index/background1.jpg", "elements/index/background2.jpg", "elements/index/background3.jpg"); 
+x=(Math.floor(Math.random()*numimages));
+randomimage=(rndimg[x]);
+document.getElementById("background").style.backgroundImage = "url("+ randomimage +")"; 
+}
+//--> 
+</script>
 
 <!--Header-->
 <header>
@@ -23,7 +35,7 @@
 </header>
 
 <!--Welcome screen-->
-<article>
+<div id="background">
     <div>
         <div class="welcome_screen_center">
             <p style="font-weight: bold;">Herzlich Willkommen auf Rollmaterial RhB.</p>
@@ -36,7 +48,7 @@
             </a>
         </div>
     </div>
-</article>
+</div>
 
 
 <!--Content-->

@@ -12,7 +12,7 @@ header {
   text-decoration: none;
 }
 
-article {
+#background {
   background-image: url("elements/index/bg.jpg") ;
   background-size: cover;
   background-repeat: no-repeat;
