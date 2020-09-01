@@ -96,7 +96,7 @@ a:active {
 }
 
 /* Touch Screen selection */
-@media (hover: none) {
+@media (hover: none), (hover:on-demand) {
   .selimg_container .selimg_overlay {
   bottom: 0;
   height: 15%;
