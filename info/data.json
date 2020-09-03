@@ -1,8 +1,10 @@
 {
-	"data": {"id": 1, "url" : "test", "title" : "Airbus", "description" : "A320"},
-	"data": {"id": 2, "url" : "test", "title" : "Boeing", "description" : "737"},
-	"data": {"id": 3, "url" : "test", "title" : "Pilatus", "description" : "PC 24"},
-	"data": {"id": 4, "url" : "test", "title" : "Cessna", "description" : "Cessna 172"},
-	"data": {"id": 5, "url" : "test", "title" : "Lockheed Martin", "description" : "F22 Raptor"},
-	"data": {"id": 6, "url" : "test", "title" : "Bombardier", "description" : "Global 5000"}
+	"data": [
+		{"url" : "test", "title" : "Airbus", "description" : "A320"},
+		{"url" : "test", "title" : "Boeing", "description" : "737"},
+		{"url" : "test", "title" : "Pilatus", "description" : "PC 24"},
+		{"url" : "test", "title" : "Cessna", "description" : "Cessna 172"},
+		{"url" : "test", "title" : "Lockheed Martin", "description" : "F22 Raptor"},
+		{"url" : "test", "title" : "Bombardier", "description" : "Global 5000"}
+	]
 }
