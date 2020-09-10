@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<title>Rollmaterial RhB - Triebz&uuml;ge</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../../style/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../style/navbar.css"/>
+<link rel="stylesheet" type="text/css" href="../../../style/menu_lvl3.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+<link rel="icon" href="../../../elements/favicon.png">
+</head>
+
+<body>
+
+<!--Scripts-->
+<script>
+function MenuFunction() {
+  var x = document.getElementById("Menu");
+  if (x.className === "menu") {
+    x.className += " responsive";
+  } else {
+    x.className = "menu";
+  }
+}
+</script>
+
+<!--Menu-->
+<div class="menu-space">
+  <div class="menu" id="Menu">
+    <a href="../../../index.html">Home</a>
+    <a href="../../lokomotiven.html" style="background-color: #2f4c2b;">Lokomotiven</a>
+    <a href="../../personenwagen.html">Personenwagen</a>
+    <a href="../../gepaeckwagen.html">Gepäckwagen</a>
+    <a href="../../gueterwagen.html">Güterwagen</a>
+    <a href="../../dienstwagen.html">Dienstwagen</a>
+    <a href="../../gleisbaumschinen.html">Gleisbaumaschinen</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="MenuFunction()">&#9776;</a>
+  </div>
+</div>
+
+<!--Content-->
+<main>
+    <h1 class="header_h1">ABe 8/12  3501 - 3515</h1>
+    <p class="header_p">ZTZ,  Allegra</p>
+
+    <div class="content">
+    	<div class="left_space">
+    		<div class="search">
+    			<a class="search_more" href="#info">▼ Wageninfo ▼</a>
+    			<input class="search_box" type="text" id="Site_Search" onkeyup="siteSearch()" placeholder="Tabelle Durchsuchen...">
+    		</div>
+    		
+    		<img class="img_nohide" src="https://upload.wikimedia.org/wikipedia/commons/6/64/RhB_ABe_8-12_Allegra_in_Pontresina.jpg">
+
+    		
+
+
+
+    	</div>
+    	<div class="right_space">
+    		<div id="data_table">
+    			<div class="group">
+		    		<h3>Steuerung</h3>
+			        <table>
+			        	<div class="list" style="display: none;">Einsatz, Steuerung, Vielfachstuerung, Zugsicherung</div>
+			            <tr>
+			                <td class="table_l">Einsatz</td>
+			                <td class="table_r">StN, ChA, BB</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Steuerung</td>
+			                <td class="table_r">Umrichtersteuerung</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Vielfachsteuerung</td>
+			                <td class="table_r">WTB-Zugbus (MZST)</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Zugsicherung</td>
+			                <td class="table_r">ZSI 127</td>
+			            </tr>
+			        </table>
+			    </div>
+
+		        <div class="group">
+			        <h3>Leistung</h3>
+			        <table>
+			        	<div class="list" style="display: none;">Leistung StN, Leistung BB, Höchstgeschwindigkeit, Bremsgewicht, Magnetschienenbremse, Bremse</div>
+			            <tr>
+			                <td class="table_l">Leistung StN</td>
+			                <td class="table_r">3808 PS / 2800 kW</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Leistung BB</td>
+			                <td class="table_r">3264 PS / 2400 kW</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Höchstgeschwindigkeit</td>
+			                <td class="table_r">100 km/h</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Bremsgewicht</td>
+			                <td class="table_r">116 t / 136 t (Fsp 122 kN)</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Magnetschienenbremse</td>
+			                <td class="table_r">20t (BG = 156t)</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Bremse</td>
+			                <td class="table_r">Druckluftbrems-Hauptleitung (Dual-Bremse)</td>
+			            </tr>
+			        </table>
+			    </div>
+
+			    <div class="group">
+			        <h3>Innenausstattung</h3>
+			        <table>
+			        	<div class="list" style="display: none;">Plätze 1. Klasse, Plätze 2. Klasse, Rollstuhlplätze, Velohaken, WC, Türen, Niederflureinstiege, Fahrgastinfosystem, Zugzielanzeigen</div>
+			            <tr>
+			                <td class="table_l">Plätze 1. Klasse</td>
+			                <td class="table_r">24</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Plätze 2. Klasse</td>
+			                <td class="table_r">76 + 14 Klappsitze</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Rollstuhlplätze</td>
+			                <td class="table_r">2 (bis max. 6 Rollstühle)</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Velohaken</td>
+			                <td class="table_r">4</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">WC</td>
+			                <td class="table_r">1 (rollstuhltauglich)</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Türen</td>
+			                <td class="table_r">Elektrisch, aussenbündig</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Niederflureinstiege</td>
+			                <td class="table_r">1</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Fahrgastinfosystem</td>
+			                <td class="table_r">KIS</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Zugzielanzeigen</td>
+			                <td class="table_r">innen und aussen</td>
+			            </tr>
+			        </table>
+			    </div>
+
+			    <div class="group">
+			        <h3>Abmasse</h3>
+			        <table>
+			        	<div class="list" style="display: none;">Leermasse, Dienstmasse, Länge, Breite, Höhe, Baujahr</div>
+			            <tr>
+			                <td class="table_l">Leermasse</td>
+			                <td class="table_r">106 t</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Dienstmasse</td>
+			                <td class="table_r">122 t</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Länge</td>
+			                <td class="table_r">49.50 m</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Breite</td>
+			                <td class="table_r">2.65 m</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Höhe</td>
+			                <td class="table_r">3.80 m</td>
+			            </tr>
+			            <tr>
+			                <td class="table_l">Baujahr</td>
+			                <td class="table_r">2010 - 2011</td>
+			            </tr>
+			        </table>
+			    </div>
+			</div><!--Data Table-->
+
+
+
+	    </div><!--Right Space-->
+
+
+	</div><!--Content-->
+</main>
+
+<!--Script-->
+<script>
+function siteSearch() {
+  var input, filter, table, elements, keyword, i, group;
+  input = document.getElementById("Site_Search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("data_table");
+  elements = table.getElementsByTagName("tr");
+  group = table.getElementsByClassName("group");
+
+
+
+  for (i = 0; i < elements.length; i++) {
+    keyword = elements[i].getElementsByClassName("table_l")[0];
+    if (keyword.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      elements[i].style.display = "";
+    }
+    else {
+      elements[i].style.display = "none";
+    }
+  }
+
+  for (i = 0; i < group.length; i++) {
+    keyword2 = group[i].getElementsByClassName("list")[0];
+    if (keyword2.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      group[i].style.display = "";
+    }
+    else {
+      group[i].style.display = "none";
+    }
+  }
+}
+</script> 
+
+<!--Footer-->
+<script language="javascript" type="text/javascript" src="../../../info/footer.txt"></script>
+
+</body>
+</html>
