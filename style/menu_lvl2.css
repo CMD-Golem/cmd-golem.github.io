@@ -2,6 +2,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: 2%;
+	text-decoration: none;
 }
 
 .selbox_spacing {
@@ -46,4 +47,8 @@ h2 {
 
 .selbox:hover {
 	background-color: #3B3A3D;
+}
+
+.selbox:link, .selbox:visited, .selbox:hover, .selbox:active {
+  color: inherit;
 }
