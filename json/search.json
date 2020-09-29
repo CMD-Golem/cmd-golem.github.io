@@ -1,6 +1,6 @@
 [
-	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"ABe 8/12", "name":"ZTZ", "name_2":"Allegra", "number":"3501 - 3515"},
-	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"ABe 4/16", "name":"STZ", "name_2":"Allegra", "number":"3101 – 3105"},
-	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"ABe 4/16", "name":"RTZ", "name_2":"Capricorn", "number":"3111 – 3166"},
-	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"Test", "name":"RTZ", "name_2":"Allegra", "number":"3111 – 3166"}
+	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"ABe 8/12", "name":"ZTZ", "name_2":"Allegra", "number":"3501 - 3515", "numbers":[1, 2, 3, 4, 5]},
+	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"ABe 4/16", "name":"STZ", "name_2":"Allegra", "number":"3101 – 3105", "numbers":[6, 7, 8, 9, 10]},
+	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"ABe 4/16", "name":"RTZ", "name_2":"Capricorn", "number":"3111 – 3166", "numbers":[11, 12, 13, 14, 15]},
+	{"link":"file:///C:/Users/Fabian/Documents/GitHub/rollmaterial-rhb/data/lokomotiven/triebzuege/abe_8-12.html", "type":"Test", "name":"RTZ", "name_2":"Allegra", "number":"3111 – 3166", "numbers":[16, 17, 18, 19, 20]}
 ]
