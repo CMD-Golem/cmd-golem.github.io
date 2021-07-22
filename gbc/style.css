@@ -1,6 +1,6 @@
 @font-face {
 	font-family: FiraSans;
-	src: url(fira_sans.ttf);
+	src: url(../elements/fira_sans.ttf);
 	font-weight: normal;
 }
 
@@ -54,7 +54,7 @@ nav {
 
 /* Logo */
 .nav_home {
-	padding: 5px 16px 10px 16px;
+	padding: 5px 16px 7px 16px;
 	float: left;
 }
 
