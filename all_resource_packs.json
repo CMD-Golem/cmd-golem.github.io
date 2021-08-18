@@ -1,0 +1,28 @@
+[
+    {
+        "ref": {
+            "@ref": {
+                "id": "306377119249728068",
+                "collection": {
+                    "@ref": {
+                        "id": "datapacks",
+                        "collection": {
+                            "@ref": {
+                                "id": "collections"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ts": 1629128503365000,
+        "data": {
+            "name": "Dark Theme",
+            "count": 57,
+            "count_yesterday": 55,
+            "count_yyesterday": 50,
+            "count_last_month": 55,
+            "date": "2021-08-16T00:00:00.0000"
+        }
+    }
+]
