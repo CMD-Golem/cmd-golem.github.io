@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calulator Test</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+<p id="input_box"><span class='first_el' id="input_el">&#8203;</span><span class='last_el'>&#8203;</span></p>
+
+
+<table class="keyboard">
+	<tr>
+		<td class="menu" style="font-size: 70%;">f &#60; &#62;</td>
+		<td class="menu" style="font-size: smaller;">abc</td>
+		<td class="menu" onclick="selectPrev(document.getElementById('input_el'))">&#129104;</td>
+		<td class="menu" onclick="selectNext()">&#129106;</td>
+		<td class="menu" style="padding-top: 2px;">&#8629;</td>
+		<td class="menu" onclick="remove()">&#9003;</td>
+	</tr>
+	<tr>
+		<td onclick="button('(')">(</td>
+		<td onclick="button(')')">)</td>
+		<td class="number" onclick="button('7')">7</td>
+		<td class="number" onclick="button('8')">8</td>
+		<td class="number" onclick="button('9')">9</td>
+		<td onclick="button(' &#247; ')">&#247;</td>
+	</tr>
+	<tr>
+		<!----><td style="font-size: 50%;"><span>&#11034;</span><br><span style="border-top: 0.8px solid var(--fontcolor);">&#11034;</span></td>
+		<!----><td style="font-size: smaller;">&#8730;<span style="border-top: 0.8px solid var(--fontcolor);">&#11034;</span></td>
+		<td class="number" onclick="button('4')">4</td>
+		<td class="number" onclick="button('5')">5</td>
+		<td class="number" onclick="button('6')">6</td>
+		<td onclick="button(' &#215; ')">&#215;</td>
+	</tr>
+	<tr>
+		<td style="font-size: smaller;" onclick="supButton()">&#11034;<sup>2</sup></td>
+		<td onclick="button('x')">x</td>
+		<td class="number" onclick="button('1')">1</td>
+		<td class="number" onclick="button('2')">2</td>
+		<td class="number" onclick="button('3')">3</td>
+		<td onclick="button(' - ')">-</td>
+	</tr>
+	<tr>
+		<td onclick="button('&pi;')">&pi;</td>
+		<td onclick="button('%')">%</td>
+		<td class="number" onclick="button('0')">0</td>
+		<td class="number" onclick="button('.')">.</td>
+		<td onclick="button(' = ')">=</td>
+		<td onclick="button(' + ')">+</td>
+	</tr>
+</table>
+
+
+
+
+<script src="app.js"></script>
+</body>
+</html>
