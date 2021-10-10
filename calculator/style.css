@@ -2,6 +2,12 @@
 	--fontcolor: #C8C3BC;
 }
 
+@font-face {
+	font-family: FiraSans;
+	src: url(../elements/fira_sans.ttf);
+	font-weight: normal;
+}
+
 html {
 	height: 100%;
 }
@@ -10,6 +16,7 @@ body {
 	background-color: #1F2123;
 	min-height: 100%;
 	color: var(--fontcolor);
+	font-family: FiraSans;
 	display: flex;
 	flex-direction: column;
 }

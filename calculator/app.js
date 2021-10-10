@@ -88,14 +88,6 @@ function button(action) {
 	new_input.addEventListener("click", select);
 	input.parentNode.insertBefore(new_input, input.nextElementSibling);
 
-	// If it is last Element add new one
-	// if (new_input.nextElementSibling == undefined) {
-	// 	var last_input = document.createElement("span");
-	// 	last_input.innerHTML = "&#11034";
-	// 	last_input.addEventListener("click", select);
-	// 	input.parentNode.insertBefore(last_input, new_input.nextElementSibling);
-	// }
-
 	input.id = "";
 	input.nextElementSibling.id = "input_el";
 }
@@ -109,10 +101,15 @@ function remove() {
 	else {
 		input.classList.remove("operator");
 		selectPrev(input);
+		if (input.parentNode.id != "input_box" && input.parentNode.childElementCount <= 3) {
+			
+		}
 		input.remove();
 	}
 }
 
+
+/* Power */
 function supButton() {
 	var input = document.getElementById("input_el");
 
