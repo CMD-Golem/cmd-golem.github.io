@@ -92,24 +92,38 @@ function button(action) {
 	input.nextElementSibling.id = "input_el";
 }
 
+
+var remove_button = document.getElementById("remove_button");
+var timer;
+
+remove_button.onpointerdown = function() {
+	remove();
+}
+remove_button.onpointerup = function() {
+	clearTimeout(timer);
+}
+
 function remove() {
 	var input = document.getElementById("input_el");
+	timer = setTimeout(remove, 200);
 	// select prev el if input is work el
 	if (input.classList.contains("first_el") || input.classList.contains("last_el") || input.id == "input_box") {
 		selectPrev(input);
+		// Remove operator if no childs
+		if (input.classList.contains("first_el") && input.parentElement.childElementCount - input.parentElement.getElementsByClassName("operator").length == 1) {
+			selectPrev(input);
+			input.parentNode.remove();
+		}
 	}
 	else {
 		input.classList.remove("operator");
+		
 		selectPrev(input);
-		if (input.parentNode.id != "input_box" && input.parentNode.childElementCount <= 3) {
-			
-		}
 		input.remove();
 	}
 }
 
-
-/* Power */
+// Power
 function supButton() {
 	var input = document.getElementById("input_el");
 
