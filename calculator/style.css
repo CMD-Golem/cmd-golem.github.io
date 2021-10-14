@@ -27,6 +27,7 @@ body {
 
 p {
 	margin: 0;
+	position: relative;
 }
 
 article {
@@ -47,6 +48,7 @@ main {
 }
 
 /* keyboard */
+/* ################################################## */
 table {
 	width: 600px;
 }
@@ -73,7 +75,20 @@ td:hover {
 	background-color: #2d2f30;
 }
 
-.has_submenu:hover > .submenu {
+.has_submenu::after {
+	display: inline-block;
+	position: absolute;
+	content: "";
+	background-color: red;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	bottom: 5px;
+	right: 5px;
+}
+
+/* Submenu */
+.has_submenu:hover .submenu {
 	display: flex;
 }
 
@@ -88,6 +103,7 @@ td:hover {
 }
 
 .submenu p {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -96,6 +112,28 @@ td:hover {
 	border-radius: 2px;
 }
 
+.submenu p::after {
+	/* Select el even mouse under submenu */
+	display: inline-block;
+	position: absolute;
+	content: "";
+	/* background-color: red; */
+	height: var(--button-size);
+	width: var(--button-size);
+	bottom: calc(-1 * var(--button-size));
+	left: 0;
+}
+
+/* Two line submenu */
+.submenu_top {
+	bottom: calc(2 * var(--button-size));
+}
+
+.submenu_top p::after {
+	display: none;
+}
+
+/* Hover Effect */
 .submenu p:hover {
 	background-color: #1F2123;
 	width: calc( var(--button-size) - 9px);
@@ -103,16 +141,9 @@ td:hover {
 	margin: 4px;
 }
 
-.has_submenu::after {
-	display: inline-block;
-	position: absolute;
-	content: "";
-	background-color: red;
-	height: 10px;
-	width: 10px;
-	border-radius: 50%;
-	bottom: 5px;
-	right: 5px;
+.submenu p:hover::after {
+	bottom: calc(-1 * var(--button-size) - 4px);
+	left: -4px;
 }
 
 @media (max-width: 600px) {
@@ -135,6 +166,7 @@ td:hover {
 }
 
 /* Cursor */
+/* ################################################## */
 
 #input_el {
 	border-right: red solid 0.2vw;
@@ -161,3 +193,19 @@ sup#input_el::after {
 	border-left: red solid 0.2vw;
 } */
 
+/* elments */
+/* ################################################## */
+.root_after {
+	border-top: var(--border) solid var(--fontcolor);
+	font-size: 82.5%;
+}
+
+.root_before {
+	vertical-align: super;
+	font-size: 50%;
+}
+
+.result {
+	position: absolute;
+	right: 0;
+}

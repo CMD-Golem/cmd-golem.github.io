@@ -11,7 +11,7 @@
 <body>
 
 <article>
-	<p id="input_box"><span class='first_el' id="input_el">&#8203;</span><span class='last_el'>&#8203;</span></p>
+	<p id="input_box"><span class='first_el' id="input_el">&#8203;</span><span class='last_el'>&#8203;</span><span class='result'></span></p>
 </article>
 
 <main>
@@ -33,7 +33,19 @@
 					<p onclick="button(')')">)</p>
 				</div>
 			</td>
-			<!----><td class="has_submenu" style="font-size: smaller;">sin</td>
+			<!----><td class="has_submenu" style="font-size: smaller;">
+				<span>sin</span>
+				<div class="submenu">
+					<p onclick="">sin</p>
+					<p onclick="">cos</p>
+					<p onclick="">tan</p>
+				</div>
+				<div class="submenu submenu_top">
+					<p onclick="">asin</p>
+					<p onclick="">acos</p>
+					<p onclick="">atan</p>
+				</div>
+			</td>
 			<td class="number" onclick="button('7')">7</td>
 			<td class="number" onclick="button('8')">8</td>
 			<td class="number" onclick="button('9')">9</td>
@@ -41,7 +53,13 @@
 		</tr>
 		<tr>
 			<!----><td style="font-size: 50%;"><span>&#11034;</span><br><span style="border-top: var(--border) solid var(--fontcolor);">&#11034;</span></td>
-			<!----><td class="has_submenu">&#8730;<span style="border-top: var(--border) solid var(--fontcolor); font-size: 82.5%;">&#11034;</span></td>
+			<!----><td class="has_submenu">
+				<span>&#8730;<span class="root_after">&#11034;</span></span>
+				<div class="submenu">
+					<p onclick="">&#8730;<span class="root_after">&#11034;</span></p>
+					<p onclick=""><span class="root_before">&#11034;</span>&#8730;<span class="root_after">&#11034;</span></p>
+				</div>
+			</td>
 			<td class="number" onclick="button('4')">4</td>
 			<td class="number" onclick="button('5')">5</td>
 			<td class="number" onclick="button('6')">6</td>
@@ -66,6 +84,7 @@
 	</table>
 </main>
 
-<script src="app.js"></script>
+<script src="style.js"></script>
+<script src="calc.js"></script>
 </body>
 </html>

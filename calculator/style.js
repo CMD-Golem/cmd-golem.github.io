@@ -20,17 +20,6 @@ function select(e) {
 	}
 }
 
-function oldSelectPrev(input) {
-	if (input.previousElementSibling != null) {
-		input.id = "";
-		input.previousElementSibling.id = "input_el";
-	}
-	else if (input.parentNode.nodeName != "P") {
-		input.id = "";
-		input.parentNode.id = "input_el";
-	}
-}
-
 function selectPrev(input) {
 	input.id = "";
 	// If el is operator select child
@@ -90,6 +79,8 @@ function button(action) {
 
 	input.id = "";
 	input.nextElementSibling.id = "input_el";
+
+	calc();
 }
 
 
@@ -121,6 +112,8 @@ function remove() {
 		selectPrev(input);
 		input.remove();
 	}
+
+	calc();
 }
 
 // Power
