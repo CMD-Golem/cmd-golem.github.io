@@ -27,7 +27,6 @@ body {
 
 p {
 	margin: 0;
-	position: relative;
 }
 
 article {
@@ -36,6 +35,7 @@ article {
 	margin: 20px;
 	padding: 0.5em;
 	border-radius: 2px;
+	overflow: scroll;
 }
 
 main {
@@ -206,6 +206,5 @@ sup#input_el::after {
 }
 
 .result {
-	position: absolute;
-	right: 0;
+	float: right;
 }
