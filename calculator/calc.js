@@ -32,7 +32,10 @@ function start_calc() {
 		if (result == undefined) {
 			result = "";
 		}
-		return Math.round((result + Number.EPSILON) * 1000000) / 1000000;
+		else {
+			result = Math.round((result + Number.EPSILON) * 1000000) / 1000000;
+		}
+		return result;
 	}
 	catch (e) {
 		return "undef";

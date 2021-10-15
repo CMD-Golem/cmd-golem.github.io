@@ -2,6 +2,42 @@ document.getElementsByClassName("first_el")[0].addEventListener("click", select)
 document.getElementsByClassName("last_el")[0].addEventListener("click", select);
 
 
+// Mobile submenu
+// ###################################################
+var submenu = document.getElementsByClassName("has_submenu");
+for (var i = 0; i < submenu.length; i++) {
+	submenu[i].addEventListener("touchmove", mobileSubMenu);
+}
+//document.getElementsByTagName("main")[0].addEventListener("touchmove", mobileSubMenu)
+
+var last_menu;
+
+function mobileSubMenu(event) {
+	test = event;
+
+	var touch_el = event.changedTouches[0];
+	var el_cord = document.elementFromPoint(touch_el.clientX, touch_el.clientY);
+
+	var menu = el_cord.closest("P");
+	if (el_cord.tagName == "P") {
+		menu = el_cord;
+	}
+
+	//console.log(menu)
+
+	if (menu != null) {
+		if (last_menu != undefined) {
+			last_menu.closest(".has_submenu").classList.remove("hover");
+			last_menu.classList.remove("hover");
+		}
+
+		last_menu = menu;
+
+		menu.closest(".has_submenu").classList.add("hover");
+		menu.classList.add("hover");
+	}
+}
+
 // Select and Move functions
 // ###################################################
 function select(e) {
@@ -64,7 +100,6 @@ function selectNext() {
 		input.id = "input_el";
 	}
 }
-
 
 // Button functions
 // ###################################################
