@@ -66,10 +66,6 @@ td {
 	position: relative;
 }
 
-td:hover {
-	background-color: #505456;
-}
-
 .menu {
 	background-color: #282A2C;
 }
@@ -91,10 +87,6 @@ td:hover {
 }
 
 /* Submenu */
-.has_submenu:hover .submenu {
-	display: flex;
-}
-
 .submenu {
 	display: none;
 	position: absolute;
@@ -137,7 +129,14 @@ td:hover {
 }
 
 /* Hover Effect */
-/* .submenu p:hover,  */
+.has_submenu.hover {
+	background-color: #505456;
+}
+
+.has_submenu.hover .submenu  {
+	display: flex;
+}
+
 .submenu p.hover {
 	background-color: #1F2123;
 	width: calc( var(--button-size) - 9px);
@@ -145,10 +144,27 @@ td:hover {
 	margin: 4px;
 }
 
-/* .submenu p:hover::after,  */
 .submenu p.hover::after {
 	bottom: calc(-1 * var(--button-size) - 4px);
 	left: -4px;
+}
+
+@media (pointer: fine) {
+	td:hover {
+		background-color: #505456;
+	}
+
+	.submenu p:hover {
+		background-color: #1F2123;
+		width: calc( var(--button-size) - 9px);
+		min-height: calc( var(--button-size) - 4px);
+		margin: 4px;
+	}
+
+	.submenu p:hover::after {
+		bottom: calc(-1 * var(--button-size) - 4px);
+		left: -4px;
+	}
 }
 
 @media (max-width: 600px) {

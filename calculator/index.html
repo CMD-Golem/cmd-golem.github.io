@@ -19,8 +19,8 @@
 		<tr>
 			<td class="menu" style="font-size: 70%;">f &#60; &#62;</td>
 			<td class="menu" style="font-size: smaller;">abc</td>
-			<td class="menu" onclick="selectPrev(document.getElementById('input_el'))">&#8592;</td>
-			<td class="menu" onclick="selectNext()">&#8594;</td>
+			<td class="menu" id="select_prev">&#8592;</td>
+			<td class="menu" id="select_next">&#8594;</td>
 			<td class="menu">&#8626;</td>
 			<td class="menu" id="remove_button">&#9003;</td>
 		</tr>
@@ -28,7 +28,7 @@
 			<td class="has_submenu">
 				<span>( )</span>
 				<div class="submenu">
-					<p onclick="button('( )')">( )</p>
+					<p onclick="doubleBracket()">( )</p>
 					<p onclick="button('(')">(</p>
 					<p onclick="button(')')">)</p>
 				</div>

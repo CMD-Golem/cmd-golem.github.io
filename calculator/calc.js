@@ -33,6 +33,7 @@ function start_calc() {
 			result = "";
 		}
 		else {
+			// Needs fix with api
 			result = Math.round((result + Number.EPSILON) * 1000000) / 1000000;
 		}
 		return result;

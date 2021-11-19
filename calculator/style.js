@@ -4,17 +4,33 @@ document.getElementsByClassName("last_el")[0].addEventListener("click", select);
 
 // Mobile submenu
 // ###################################################
-var submenu = document.getElementsByClassName("has_submenu");
-for (var i = 0; i < submenu.length; i++) {
-	submenu[i].addEventListener("touchmove", mobileSubMenu);
+if (window.matchMedia("(pointer: coarse)").matches) {
+	var last_menu, last_td;
+    var submenu = document.getElementsByClassName("has_submenu");
+
+	for (var i = 0; i < submenu.length; i++) {
+		submenu[i].addEventListener("touchstart", SubMenuStart);
+		submenu[i].addEventListener("touchmove", SubMenuMove);
+		submenu[i].addEventListener("touchend", SubMenuEnd);
+	}
 }
-//document.getElementsByTagName("main")[0].addEventListener("touchmove", mobileSubMenu)
 
-var last_menu;
+function SubMenuStart(event) {
+	// Add hover class to td
+	var touch_td = event.target;
+	var td = touch_td.closest(".has_submenu");
+	if (touch_td.classList.contains("has_submenu")) {
+		td = touch_td;
+	}
 
-function mobileSubMenu(event) {
-	test = event;
+	last_td = td;
+	last_menu = td.getElementsByTagName("p")[0];
 
+	td.classList.add("hover");
+}
+
+function SubMenuMove(event) {
+	// Get p element
 	var touch_el = event.changedTouches[0];
 	var el_cord = document.elementFromPoint(touch_el.clientX, touch_el.clientY);
 
@@ -23,23 +39,71 @@ function mobileSubMenu(event) {
 		menu = el_cord;
 	}
 
-	//console.log(menu)
-
+	// Remove/ Add hover class to p
+	if (last_menu != undefined) {
+		last_menu.classList.remove("hover");
+		last_menu = undefined;
+	}
 	if (menu != null) {
-		if (last_menu != undefined) {
-			last_menu.closest(".has_submenu").classList.remove("hover");
-			last_menu.classList.remove("hover");
-		}
-
 		last_menu = menu;
 
-		menu.closest(".has_submenu").classList.add("hover");
 		menu.classList.add("hover");
+	}
+}
+
+function SubMenuEnd() {
+	// Execute onclick
+	if (last_menu != undefined) {
+		last_menu.click();
+		last_menu.classList.remove("hover");
+	}
+
+	// Remove classes
+	last_td.classList.remove("hover");
+	last_td.getElementsByTagName("p")[0].classList.add("hover");
+}
+
+
+// Mouse Submenu
+// ###################################################
+if (window.matchMedia("(pointer: fine)").matches) {
+	document.getElementsByTagName("main")[0].addEventListener('contextmenu', event => {
+		event.preventDefault();
+
+		var td_click = event.target;
+		var td_menu = td_click.closest(".has_submenu");
+		if (td_click.classList.contains("has_submenu")) {
+			td_menu = td_click;
+		}
+
+		if (td_menu != null) {
+			td_menu.addEventListener("click", SubMenuHide);
+			td_menu.addEventListener("mouseleave", SubMenuHide);
+
+			var submenu = td_menu.getElementsByClassName("submenu");
+			for (var i = 0; i < submenu.length; i++) {
+				submenu[i].style.display = "flex";
+			}
+		}
+	});
+}
+
+function SubMenuHide(event) {
+	var td_menu = event.target.closest(".has_submenu");
+
+	td_menu.removeEventListener("click", SubMenuHide);
+	td_menu.removeEventListener("mouseleave", SubMenuHide);
+
+	var submenu = td_menu.getElementsByClassName("submenu");
+	for (var i = 0; i < submenu.length; i++) {
+		submenu[i].style.display = "none";
 	}
 }
 
 // Select and Move functions
 // ###################################################
+var timer;
+
 function select(e) {
 	var input = e.target;
 	document.getElementById("input_el").id = "";
@@ -54,6 +118,22 @@ function select(e) {
 	else {
 		selectPrev(input);
 	}
+}
+
+// select next
+var select_prev_button = document.getElementById("select_prev");
+var select_prev_timer;
+
+select_prev_button.onpointerdown = function() {
+	preSelectPrev();
+}
+select_prev_button.onpointerup = function() {
+	clearTimeout(select_prev_timer);
+}
+
+function preSelectPrev() {
+	select_prev_timer = setTimeout(preSelectPrev, 200);
+	selectPrev(document.getElementById('input_el'));
 }
 
 function selectPrev(input) {
@@ -75,8 +155,20 @@ function selectPrev(input) {
 	}
 }
 
+// select next
+var select_next_button = document.getElementById("select_next");
+var select_next_timer;
+
+select_next_button.onpointerdown = function() {
+	selectNext();
+}
+select_next_button.onpointerup = function() {
+	clearTimeout(select_next_timer);
+}
+
 function selectNext() {
 	var input = document.getElementById("input_el");
+	select_next_timer = setTimeout(selectNext, 200);
 	input.id = "";
 	// test if next el exists
 	if (input.nextElementSibling != null) {
@@ -118,20 +210,20 @@ function button(action) {
 	calc();
 }
 
-
+// Remove button
 var remove_button = document.getElementById("remove_button");
-var timer;
+var remove_timer;
 
 remove_button.onpointerdown = function() {
 	remove();
 }
 remove_button.onpointerup = function() {
-	clearTimeout(timer);
+	clearTimeout(remove_timer);
 }
 
 function remove() {
 	var input = document.getElementById("input_el");
-	timer = setTimeout(remove, 200);
+	remove_timer = setTimeout(remove, 200);
 	// select prev el if input is work el
 	if (input.classList.contains("first_el") || input.classList.contains("last_el") || input.id == "input_box") {
 		selectPrev(input);
@@ -177,4 +269,26 @@ function supButton() {
 	new_input.insertBefore(new_input_el, null)
 
 	input.id = "";
+}
+
+//Double Bracket
+function doubleBracket() {
+	var input = document.getElementById("input_el");
+
+	// Create new Input Element
+	var new_input = document.createElement("span");
+	new_input.innerHTML = "(";
+	new_input.addEventListener("click", select);
+	input.parentNode.insertBefore(new_input, input.nextElementSibling);
+
+	// Create second Input Element
+	var sec_input = document.createElement("span");
+	sec_input.innerHTML = ")";
+	sec_input.addEventListener("click", select);
+	new_input.parentNode.insertBefore(sec_input, new_input.nextElementSibling);
+
+	input.id = "";
+	input.nextElementSibling.id = "input_el";
+
+	calc();
 }
