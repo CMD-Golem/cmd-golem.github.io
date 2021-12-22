@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.1.0/jszip-utils.min.js"></script>
+</head>
+<body>
+
+	<button onclick="downloadFile('11bLZSie2Z2KX9gaz9f7q6kO2Uy5dsNjR')">Test</button>
+
+<script>
+function downloadFile(file_id) {
+	const url = "https://www.googleapis.com/drive/v3/files/" + file_id + "?alt=media";
+	fetch(url, {
+		method: "GET",
+		dataType: "binary",
+		responseType: "blob",
+		headers: {Authorization: "Bearer 306941938138-4s8ba18nqeohb69cp2hulg6lfqvfgp18.apps.googleusercontent.com"}
+	})
+	.then(res => res.blob())
+	.then(blob => {	
+		var zip = new JSZip();
+
+		zip.loadAsync(blob).then(function (zip) {
+			// Your Web App
+			zip.file("test.txt", "Test");
+			
+			zip.generateAsync({type:"base64"}).then(function (content) {
+				var link = document.createElement('a');
+				link.download = "Test";
+				link.href = "data:application/zip;base64," + content;
+				link.click();
+			});
+		});
+	});
+}
+
+</script>
+
+
+</body>
+</html>
