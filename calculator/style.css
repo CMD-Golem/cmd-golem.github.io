@@ -4,6 +4,14 @@
 	--button-size: 99px;
 }
 
+.katex-display {
+	margin: 0 !important;
+}
+
+.katex {
+	font-size: 1em;
+}
+
 /* @font-face {
 	font-family: FiraSans;
 	src: url(../elements/fira_sans.ttf);

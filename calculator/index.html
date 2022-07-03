@@ -6,6 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Calulator Test</title>
 	<link rel="stylesheet" href="style.css">
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+		onload="renderMathInElement(document.body);"></script>
 </head>
 
 <body>
@@ -25,61 +31,90 @@
 			<td class="menu" id="remove_button">&#9003;</td>
 		</tr>
 		<tr>
-			<td class="has_submenu">
+			<!--Bracket--><td class="has_submenu" onclick="bracket('auto')">
 				<span>( )</span>
 				<div class="submenu">
-					<p onclick="doubleBracket()">( )</p>
-					<p onclick="button('(')">(</p>
-					<p onclick="button(')')">)</p>
+					<p onclick="bracket('auto')">( )</p>
+					<p onclick="bracket('open')">(</p>
+					<p onclick="bracket('close')">)</p>
 				</div>
 			</td>
-			<!----><td class="has_submenu" style="font-size: smaller;">
+			<!--Trigo--><td class="has_submenu" style="font-size: smaller;" onclick="trigo('sin')">
 				<span>sin</span>
 				<div class="submenu">
-					<p onclick="">sin</p>
-					<p onclick="">cos</p>
-					<p onclick="">tan</p>
+					<p onclick="trigo('sin')">sin</p>
+					<p onclick="trigo('cos')">cos</p>
+					<p onclick="trigo('tan')">tan</p>
 				</div>
 				<div class="submenu submenu_top">
-					<p onclick="">asin</p>
-					<p onclick="">acos</p>
-					<p onclick="">atan</p>
+					<p onclick="trigo('asin')">asin</p>
+					<p onclick="trigo('acos')">acos</p>
+					<p onclick="trigo('atan')">atan</p>
 				</div>
 			</td>
-			<td class="number" onclick="button('7')">7</td>
-			<td class="number" onclick="button('8')">8</td>
-			<td class="number" onclick="button('9')">9</td>
-			<td onclick="button(' &#247; ')">&#247;</td>
+			<td class="number" onclick="num('7')">7</td>
+			<td class="number" onclick="num('8')">8</td>
+			<td class="number" onclick="num('9')">9</td>
+			<!--Division--><td onclick="op('/')">&#247;</td>
 		</tr>
 		<tr>
-			<!----><td style="font-size: 50%;"><span>&#11034;</span><br><span style="border-top: var(--border) solid var(--fontcolor);">&#11034;</span></td>
-			<!----><td class="has_submenu">
-				<span>&#8730;<span class="root_after">&#11034;</span></span>
+			<!--Division--><td class="has_submenu" style="font-size: 50%;" onclick="div()">
+				<span>$$\frac{\Box}{\Box}$$</span>
 				<div class="submenu">
-					<p onclick="">&#8730;<span class="root_after">&#11034;</span></p>
-					<p onclick=""><span class="root_before">&#11034;</span>&#8730;<span class="root_after">&#11034;</span></p>
+					<p onclick="div()">$$\frac{\Box}{\Box}$$</p>
+					<p onclick="div(2)">$$\frac{\Box}{2}$$</p>
+					<p onclick="div(3)">$$\frac{\Box}{3}$$</p>
 				</div>
 			</td>
-			<td class="number" onclick="button('4')">4</td>
-			<td class="number" onclick="button('5')">5</td>
-			<td class="number" onclick="button('6')">6</td>
-			<td onclick="button(' &#215; ')">&#215;</td>
+			<!--Square Root--><td class="has_submenu" style="font-size: 70%;" onclick="sqrt(false)">
+				<span>$$\sqrt{\Box}$$</span>
+				<div class="submenu">
+					<p onclick="sqrt(false)">$$\sqrt{\Box}$$</p>
+					<p onclick="sqrt(true)">$$\sqrt[\Box]{\Box}$$</p>
+				</div>
+			</td>
+			<td class="number" onclick="num('4')">4</td>
+			<td class="number" onclick="num('5')">5</td>
+			<td class="number" onclick="num('6')">6</td>
+			<!--Multiplication--><td onclick="op('*')">&#215;</td>
 		</tr>
 		<tr>
-			<td class="has_submenu" style="font-size: smaller;" onclick="supButton()">&#11034;<sup>2</sup></td>
-			<!----><td class="has_submenu" style="font-size: 70%;">log<sub>&#11034;</sub></td>
-			<td class="number" onclick="button('1')">1</td>
-			<td class="number" onclick="button('2')">2</td>
-			<td class="number" onclick="button('3')">3</td>
-			<td onclick="button(' - ')">-</td>
+			<!--Potency--><td class="has_submenu" style="font-size: smaller;" onclick="pot(2)">
+				<span>$$\Box^2$$</span>
+				<div class="submenu">
+					<p onclick="pot(2)">$$\Box^2$$</p>
+					<p onclick="pot(3)">$$\Box^3$$</p>
+					<p onclick="pot()">$$\Box^\Box$$</p>
+				</div>
+			</td>
+			<!--Log--><td class="has_submenu" style="font-size: 60%;" onclick="log()">
+				<span>$$\log_\Box$$</span>
+				<div class="submenu">
+					<p onclick="log()">$$\log_\Box$$</p>
+					<p onclick="log(2)">$$\log_2$$</p>
+					<p onclick="log(10)">$$\lg$$</p>
+					<p onclick="log('e')">$$\ln$$</p>
+				</div>
+			</td>
+			<td class="number" onclick="num('1')">1</td>
+			<td class="number" onclick="num('2')">2</td>
+			<td class="number" onclick="num('3')">3</td>
+			<!--Subtraktion--><td onclick="op('-')">-</td>
 		</tr>
 		<tr>
-			<td class="has_submenu" onclick="button('&pi;')">&pi;</td>
-			<td class="has_submenu" onclick="button('x')">x</td>
-			<td class="number" onclick="button('0')">0</td>
-			<td class="number" onclick="button('.')">.</td>
-			<td onclick="button(' = ')">=</td>
-			<td onclick="button(' + ')">+</td>
+			<!--Pi--><td onclick="special('pi')">&pi;</td>
+			<!--Variables--><td class="has_submenu" onclick="special('x')">
+				<span>x</span>
+				<div class="submenu">
+					<p onclick="special('x')">x</p>
+					<p onclick="special('y')">y</p>
+					<p onclick="special('z')">z</p>
+				</div>
+			</td>
+			<td class="number" onclick="num('0')">0</td>
+			<td class="number" onclick="point()">.</td>
+			<!--Equal--><td onclick="op('=')">=</td>
+			<!--Plus--><td onclick="op('+')">+</td>
 		</tr>
 	</table>
 </main>
