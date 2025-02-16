@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>UUID</title>
+
+	<style>
+		:root {
+			--background-color: black;
+			--foreground-color: #212022;
+			--text-color: #FFFEFF;
+		}
+
+		body {
+			background-color: var(--background-color);
+			color: var(--text-color);
+			margin: 0;
+			font-size: 14px;
+		}
+
+		main {
+			padding: 40px;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		input, button {
+			border: none;
+			outline: none;
+			color: var(--text-color);
+			border-radius: 35px;
+			height: 35px;
+			background-color: var(--foreground-color);
+		}
+
+		input {
+			width: calc(100% - 17.5px);
+			padding-left: 17.5px;
+			margin-bottom: 10px;
+		}
+
+		button {
+			display: block;
+			width: 150px;
+			margin: 20px auto;
+		}
+		button:hover {
+			border: 2px solid var(--text-color);
+		}
+
+		#output {
+			display: block;
+			margin-top: 50px;
+			text-align: center;
+			user-select: all;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<input placeholder="UUID" id="uuid" autocomplete="one-time-code">
+		<input placeholder="Password" id="password" type="password" autocomplete="current-password">
+		<input placeholder="Identifier" id="identifier" type="password" autocomplete="one-time-code">
+		<button onclick="generate()">Generate</button>
+		<div id="output"></div>
+	</main>
+
+	<script>
+
+	async function generate() {
+		var uuid = document.getElementById("uuid").value;
+		var masterKey = document.getElementById("password").value;
+		var masterString = document.getElementById("identifier").value;
+
+		var encoder = new TextEncoder();
+		var crypto_key = await crypto.subtle.importKey(
+			"raw",
+			encoder.encode(masterKey),
+			{ name: "HMAC", hash: "SHA-256" },
+			false,
+			["sign"]
+		);
+
+		var string = "";
+		var charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$%^&*()_+-=[]{}|/;:,.<>";
+		var signature = await crypto.subtle.sign("HMAC", crypto_key, encoder.encode(uuid + masterString));
+		var array = Array.from(new Uint8Array(signature));
+		
+		for (let i = 0; i < array.length; i++) {
+			string += charset[array[i] % charset.length];
+		}
+
+		document.getElementById("output").innerHTML =  string.slice(0, 20);
+	}
+
+	</script>
+</body>
+</html>
