@@ -1,5 +1,6 @@
 var el_year = document.getElementById("year");
 var el_week = document.getElementById("week");
+var el_main = document.querySelector("main");
 var coop;
 
 async function load() {
@@ -42,6 +43,7 @@ function getWeeks(year) {
 
 
 async function loadCoop() {
+	el_main.innerHTML = "";
 	var issue = el_week.value;
 
 	var magazin_load = await fetch(`https://proxy.tabq.workers.dev?url=https%3A%2F%2Fepaper.coopzeitung.ch%2Faviator%2F_resources%2Fphp%2Fget_timone.php%3Fnewspaper%3DCZ%26issue%3D${issue}%26edition%3DCZ51`)
@@ -55,11 +57,12 @@ async function loadCoop() {
 	// 	Link to PDF: https://epaper.coopzeitung.ch/_deploy/CZ/20241119/CZ51/20241118052356440/whole/CZ_20241119_CZ51.pdf
 
 	var magazin = await magazin_load.json();
-	window.open(`https://epaper.coopzeitung.ch/_deploy/CZ/${issue}/CZ51/${magazin.timone.version}/whole/CZ_${issue}_CZ51.pdf`, "_self")
+	var iframe = document.createElement("iframe");
+	iframe.src = `https://epaper.coopzeitung.ch/_deploy/CZ/${issue}/CZ51/${magazin.timone.version}/whole/CZ_${issue}_CZ51.pdf`;
+	el_main.appendChild(iframe)
+	// window.open(`https://epaper.coopzeitung.ch/_deploy/CZ/${issue}/CZ51/${magazin.timone.version}/whole/CZ_${issue}_CZ51.pdf`, "_self")
 }
 
-
-var el_main = document.querySelector("main");
 
 async function loadMigros() {
 	// 	List with links to images of all pages: https://reader3.isu.pub/m-magazin/migros-magazin-45-2024-d-os/reader3_4.json
