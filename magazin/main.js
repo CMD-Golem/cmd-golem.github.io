@@ -40,13 +40,17 @@ function getWeeks(year) {
 	}
 }
 
+// pdfjs
+var { pdfjsLib } = globalThis;
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.mjs';
+pdfjsLib.GlobalWorkerOptions.disableFontFace = false;
 
 
 async function loadCoop() {
 	el_main.innerHTML = "";
 	var issue = el_week.value;
 
-	var magazin_load = await fetch(`https://proxy.tabq.workers.dev?url=https%3A%2F%2Fepaper.coopzeitung.ch%2Faviator%2F_resources%2Fphp%2Fget_timone.php%3Fnewspaper%3DCZ%26issue%3D${issue}%26edition%3DCZ51`)
+	var magazin_load = await fetch(`https://proxy.tabq.workers.dev?url=https%3A%2F%2Fepaper.coopzeitung.ch%2Faviator%2F_resources%2Fphp%2Fget_timone.php%3Fnewspaper%3DCZ%26issue%3D${issue}%26edition%3DCZ51`);
 	if (magazin_load.status != 200) {
 		console.error(magazin_load);
 		return;
@@ -57,10 +61,27 @@ async function loadCoop() {
 	// 	Link to PDF: https://epaper.coopzeitung.ch/_deploy/CZ/20241119/CZ51/20241118052356440/whole/CZ_20241119_CZ51.pdf
 
 	var magazin = await magazin_load.json();
-	var iframe = document.createElement("iframe");
-	iframe.src = `https://epaper.coopzeitung.ch/_deploy/CZ/${issue}/CZ51/${magazin.timone.version}/whole/CZ_${issue}_CZ51.pdf`;
-	el_main.appendChild(iframe)
-	// window.open(`https://epaper.coopzeitung.ch/_deploy/CZ/${issue}/CZ51/${magazin.timone.version}/whole/CZ_${issue}_CZ51.pdf`, "_self")
+
+	var pdfDoc = await pdfjsLib.getDocument(`https://proxy.tabq.workers.dev?type=pdf&url=https%3A%2F%2Fepaper.coopzeitung.ch%2F_deploy%2FCZ%2F${issue}%2FCZ51%2F${magazin.timone.version}%2Fwhole%2FCZ_${issue}_CZ51.pdf`).promise;
+	
+	// scale size
+	var page = await pdfDoc.getPage(1);
+	var viewport = page.getViewport({ scale: 1});
+	var width = el_main.clientWidth;
+	var scale = width*2 / viewport.width;
+
+	// render pages
+	for (var i = 1; i < pdfDoc.numPages; i++) {
+		var canvas = document.createElement("canvas");
+		el_main.appendChild(canvas);
+
+		var page = await pdfDoc.getPage(i);
+		var viewport = page.getViewport({scale: scale});
+		canvas.width = viewport.width;
+		canvas.height = viewport.height;
+
+		await page.render({canvasContext: canvas.getContext('2d'), viewport: viewport, textLayerMode: 2}).promise;
+	}
 }
 
 
