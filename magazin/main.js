@@ -40,12 +40,6 @@ function getWeeks(year) {
 	}
 }
 
-// pdfjs
-var { pdfjsLib } = globalThis;
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.mjs';
-pdfjsLib.GlobalWorkerOptions.disableFontFace = false;
-
-
 async function loadCoop() {
 	el_main.innerHTML = "";
 	var issue = el_week.value;
@@ -62,25 +56,10 @@ async function loadCoop() {
 
 	var magazin = await magazin_load.json();
 
-	var pdfDoc = await pdfjsLib.getDocument(`https://proxy.tabq.workers.dev?type=pdf&url=https%3A%2F%2Fepaper.coopzeitung.ch%2F_deploy%2FCZ%2F${issue}%2FCZ51%2F${magazin.timone.version}%2Fwhole%2FCZ_${issue}_CZ51.pdf`).promise;
-	
-	// scale size
-	var page = await pdfDoc.getPage(1);
-	var viewport = page.getViewport({ scale: 1});
-	var width = el_main.clientWidth;
-	var scale = width*2 / viewport.width;
-
-	// render pages
-	for (var i = 1; i < pdfDoc.numPages; i++) {
-		var canvas = document.createElement("canvas");
-		el_main.appendChild(canvas);
-
-		var page = await pdfDoc.getPage(i);
-		var viewport = page.getViewport({scale: scale});
-		canvas.width = viewport.width;
-		canvas.height = viewport.height;
-
-		await page.render({canvasContext: canvas.getContext('2d'), viewport: viewport, textLayerMode: 2}).promise;
+	for (var i = 0; i < magazin.timone.pages.length; i++) {
+		var element = document.createElement('img');
+		element.src = "https://epaper.coopzeitung.ch/_deploy/" + magazin.timone.pages[i].high;
+		el_main.appendChild(element);
 	}
 }
 
