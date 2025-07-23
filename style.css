@@ -1,0 +1,50 @@
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: #131319;
+	padding: 15px;
+	font-family: sans-serif;
+	font-size: 12px;
+	margin: 0;
+}
+
+.shortcut_container {
+	display: grid;
+	background-color: #2d2d38;
+	width: calc(100% - 40px);
+	border-radius: 20px;
+	--cols: 4;
+	--gap: 30px;
+	--padding: 20px;
+	--grid-column-width: calc((100% / var(--cols)) - ((var(--gap) * (var(--cols) - 1) ) / var(--cols)));
+	grid-template-columns: repeat(var(--cols), var(--grid-column-width) );
+	grid-gap: var(--gap);
+	padding: var(--padding);
+	max-width: calc(var(--cols) * 100px);
+	margin: 0 auto;
+}
+
+.shortcut_container a {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	width: 100%;
+}
+
+.shortcut_container img {
+	width: 100%;
+	aspect-ratio: 1/1;
+	object-fit: contain;
+}
+
+.shortcut_container p {
+	color: white;
+	text-align: center;
+	margin: 0;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.menu_container {
+	margin-bottom: 15px;
+}
